@@ -52,7 +52,6 @@ public class Cat extends GamePiece
             ((Mouse) gp).lowerLife();
             game.set(gp,co[0],co[1]);
             gp.setX(co[0]);gp.setY(co[1]);
-
         }
         this.setX(x);
         this.setY(y);
@@ -72,6 +71,7 @@ public class Cat extends GamePiece
 
             for (int i = 0; i < posx.length; i++)
             {
+             
                 if (min > game.distanceTo(new Point(posx[i], posy[i]), game.getMouse())&&canMove(posx[i], posy[i]))
                 {
                     min = game.distanceTo(new Point(posx[i], posy[i]), game.getMouse());

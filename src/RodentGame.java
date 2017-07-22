@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static java.lang.Math.abs;
+
 public class RodentGame
 {
 
@@ -52,7 +54,7 @@ public class RodentGame
 		   {
 			   return grid;
 		   }
-		   public int nextSpawn()	//Returns a string containing the number of moves until new cats spawn or “NA” if there are no more cats left in the level.
+		   public int nextSpawn()	//Returns a string containing the number of moves until new cats spawn or ï¿½NAï¿½ if there are no more cats left in the level.
 		   {
 			   if (this.getCatTimes().size()>0)
 			  	 return this.getCatTimes().get(0)-time;
@@ -73,8 +75,8 @@ public class RodentGame
 			   return replaced;//o	the old value of the location is return 
 		   }
 		
-		//•	When gp is null it will put null in spot (x,y) and return the old value of the location.
-		//•	When gp is not null 
+		//ï¿½	When gp is null it will put null in spot (x,y) and return the old value of the location.
+		//ï¿½	When gp is not null 
 
 		   public Mouse getMouse()	//Returns the mouse
 		   {
@@ -160,16 +162,16 @@ public class RodentGame
 			   return true;
 		   }
 /*
-		1 – Wall
-		0 – Open Ground
-		2 – Movable Wall
-		m – Mouse
-		y – Yarn
-		c – Cat
-		d – Dead Mouse
-		h – Cheese
-		o – Hole
-		t – Trap*/
+		1 ï¿½ Wall
+		0 ï¿½ Open Ground
+		2 ï¿½ Movable Wall
+		m ï¿½ Mouse
+		y ï¿½ Yarn
+		c ï¿½ Cat
+		d ï¿½ Dead Mouse
+		h ï¿½ Cheese
+		o ï¿½ Hole
+		t ï¿½ Trap*/
 
 		//Returns true if successful and false if unsuccessful.
 
@@ -227,11 +229,11 @@ public class RodentGame
 					this.setStatus(DEAD);
 
 		   }
-		   public int getStatus()	//Returns the game’s status
+		   public int getStatus()	//Returns the gameï¿½s status
 		   {
 			   return status;
 		   }
-		   public ArrayList<GamePiece> getPieces()	//Returns an ArrayList containing all the items in the game’s grid.
+		   public ArrayList<GamePiece> getPieces()	//Returns an ArrayList containing all the items in the gameï¿½s grid.
 		   {
 			   ArrayList<GamePiece>a =new ArrayList<>();
 
@@ -255,7 +257,7 @@ public class RodentGame
 		   {
 			   this.status=status;
 		   }
-		   public ArrayList<Cat> getCats()	//Returns an ArrayList of the Cats in the game’s grid
+		   public ArrayList<Cat> getCats()	//Returns an ArrayList of the Cats in the gameï¿½s grid
 		   {
 			   ArrayList<Cat>cats=new ArrayList<Cat>();
 
@@ -268,7 +270,10 @@ public class RodentGame
 		   }
 		   public int distanceTo(Point p, GamePiece gp)	//Returns the distance from gp to the specified point.
 		   {
-			   return (int) Math.hypot(gp.getX() - p.getX(), p.getY() - gp.getY());
+			   //return (int) Math.hypot(gp.getX() - p.getX(), p.getY() - gp.getY());
+
+			   //using manattan distance
+			   return abs(gp.getX() - (int)p.getX())+abs((int)p.getY() - (gp.getY()));
 		   }
 
 }
