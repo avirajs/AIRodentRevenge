@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="GameRodent:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/GameRodent_jar</output-path>
+    <root id="archive" name="GameRodent.jar">
+      <element id="module-output" name="GameRodent" />
+    </root>
+  </artifact>
+</component>
