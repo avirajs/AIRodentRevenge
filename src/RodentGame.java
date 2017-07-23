@@ -272,7 +272,7 @@ public class RodentGame
 		   {
 			   //return (int) Math.hypot(gp.getX() - p.getX(), p.getY() - gp.getY());
 
-			   //using manattan distance
+			   //using manhattan distance
 			   return abs(gp.getX() - (int)p.getX())+abs((int)p.getY() - (gp.getY()));
 		   }
 

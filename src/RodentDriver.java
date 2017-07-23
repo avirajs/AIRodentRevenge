@@ -6,7 +6,7 @@ import java.io.IOException;
 public class RodentDriver
 {
     public static void main(String[] args) throws IOException {
-        RodentGame g= new RodentGame(4);
+        RodentGame g= new RodentGame(6);
         RodentFrame f=new RodentFrame("Rodent's Revenge",g);
     }
 }
