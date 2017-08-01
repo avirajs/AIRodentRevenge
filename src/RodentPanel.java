@@ -60,7 +60,7 @@ public class RodentPanel extends JPanel implements KeyListener
 				yarn=(ImageIO.read((new File("Rodents Revenge pics//Yarn.png"))));
 				trap=(ImageIO.read((new File("Rodents Revenge pics//Trap.png"))));
 
-				System.out.println("All images were loaded Properly.");
+				//System.out.println("All images were loaded Properly.");
 			}
 			catch(Exception e)
 			{
@@ -126,10 +126,10 @@ public class RodentPanel extends JPanel implements KeyListener
 					if (grid[r][c]==null)
 						g.drawImage(ground,c * 40, r*40, null);
 
-					System.out.printf("|%s", (grid[r][c]));
+					//System.out.printf("|%s", (grid[r][c]));
 
 				}
-				System.out.println("|");
+				//System.out.println("|");
 			}
 
 
@@ -181,14 +181,13 @@ public class RodentPanel extends JPanel implements KeyListener
 			requestFocus();
 		}
 
-	public void reset() throws IOException//	Creates a new game
+	public void reset() throws IOException//Creates a new game
 	{
 		int lev=gm.getLevel();
 		int score=gm.getScore();
 
 		if(gm.getStatus()==gm.WIN)
 		{
-
 			gm = new RodentGame(lev+1);
 			gm.setScore(score+1);
 		}

@@ -6,12 +6,11 @@ public class Trap extends GamePiece
     public Trap(RodentGame game)
     {
         super(game);
-
         this.game=game;
-
     }
 
-    public void act() {
+    public void act()
+    {
 
     }
 

@@ -10,14 +10,17 @@ public class Mouse extends GamePiece
     public static final int MOVING=0;	//Stores the number of lives the mouse has left
     public int lives=3;
 
+    //Call super to set data
+    //Sets lives to 3
+    //Adds the moving mouse image to images
     public Mouse(RodentGame game)
     {
         super(game);
         state=MOVING;
         this.game=game;
-
-
     }
+
+    //respawns to a random empty space
     public int[]respawn()
     {
         int x=3, y=3;
@@ -44,40 +47,33 @@ public class Mouse extends GamePiece
     {
         return "Mouse";
     }
-    //•	Call super to set data
-    //	Sets lives to 3
-    //Adds the moving mouse image to images
-
-    /*Preforms the following operations:
-    •	Subtracts 1 from lives
-    •	When lives reaches 0 the game is ended
-    •	When lives is 1 or more
-    o	Respawns the mouse in a random safe location*/
     public int getLives()
     {
         return lives;
     }
+    /*Preforms the following operations:
+  ï¿½	Subtracts 1 from lives
+  ï¿½	When lives reaches 0 the game is ended
+  ï¿½	When lives is 1 or more
+  o	Respawns the mouse in a random safe location*/
     public boolean canMove(int x, int y)
     {
         GamePiece gp;
         int xd,yd;
+        gp=game.get(x,y);
+
+        //keeps track of direction from where cat is coming
         xd=x-this.getX();
         yd=y-this.getY();
-        gp=game.get(x,y);
 
         if(game.get(x,y)instanceof Wall||game.get(x,y)instanceof Cat)//yarn
             return false;
         if (x>game.grid.length || x<0 ||y>game.grid.length || y<0 )
             return false;
 
+        //adds from direction of cat
         if (gp instanceof MovableWall)
-        {
-
             return gp.canMove(x + xd, y + yd);//if wall can move mouse can
-
-        }
-
-
 
         return true;
 
@@ -105,7 +101,6 @@ public class Mouse extends GamePiece
             if (gp instanceof MovableWall)
             {
                 gp.move(x + xd, y + yd);
-
             }
             if (gp instanceof Cheese)
             {
@@ -113,18 +108,15 @@ public class Mouse extends GamePiece
             }
             if (gp instanceof Hole)
             {
-
                 int hx=gp.getX();int hy=gp.getY();
                 game.addTime();
                 state=TRAPPED;
                 gp.setState(TRAPPED);
                 for (int i=0;i<5;i++)
                     game.update();
-
             }
             if (gp instanceof Trap)
             {
-
                 int hx=gp.getX();int hy=gp.getY();
                 game.set(gp,hx,hy);
                 gp.setX(hx);gp.setY(hy);
@@ -133,7 +125,6 @@ public class Mouse extends GamePiece
                 this.lowerLife();
                 game.set(this, co[0], co[1]);
                 this.setX(co[0]);this.setY(co[1]);
-
             }
             else
             {

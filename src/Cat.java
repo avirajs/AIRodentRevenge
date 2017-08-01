@@ -6,7 +6,7 @@ public class Cat extends GamePiece
 {
 
     public static final double MIN_TEMPERATURE = 1;
-    public static double TEMPERATURE = 100;
+    public static double TEMPERATURE = 1000;
     public static final double COOLING_RATE = 0.02;
 
     public static final int TRAPPED=1;
@@ -64,6 +64,7 @@ public class Cat extends GamePiece
     }
     public void act()	//moves toward mouse
     {
+        System.out.println(TEMPERATURE+"    ");
         if (this.isTrapped())
             this.setState(TRAPPED);
         else
